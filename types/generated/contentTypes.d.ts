@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
   collectionName: 'restaurants';
   info: {
+    description: '';
     displayName: 'Restaurant';
     pluralName: 'restaurants';
     singularName: 'restaurant';
@@ -390,6 +391,10 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
       'api::restaurant.restaurant'
     > &
       Schema.Attribute.Private;
+    Media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
